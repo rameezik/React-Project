@@ -1,37 +1,65 @@
- import  "./card.css"
- import {Star} from "lucide-react"
- export default function Card(){
+import "./card.css"
+import { Star, Users, Crown } from "lucide-react";
+export default function Card(props) {
 
 
 
 
 
 
-    return(
-    <>
-    <div className="card">
-        <div className="head">
-            <h2>WEB DEVELOPMENT</h2>
-            <img src="/images/codewithharry.jpg" alt="codewithharry" />
-           <button>
-           <h4>5</h4> <Star size={12} fill="gold" color="gold" />
-           </button>
-        </div>
+    return (
+        <>
+            <div className="card">
+                <div className="head">
+                    <h2>{props.Speciality}</h2>
+                </div>
 
-        <div className="center">
+                <button className="button">
+                    <span>{props.Rating} </span>  <Star size={15} fill="gold" color="gold" padding={0} />
+                </button>
 
-
-        </div>
+                <img className="img" src={props.Pic} alt="codewithharry" />
 
 
-        <div className="foot">
+                <div className="center">
+                    <h3>{props.Name}</h3>
+                    <h5>{props.Field}</h5>
 
-        </div>
+                    <div className="stats">
 
-    </div>
-    
-    
-    </>
+                        <div className="stat-item">
+                            <Star size={18} fill="gold" color="gold" />
+                            <div className="text">
+                                <h4>{props.Subs}</h4>
+                                <p>Subscribers</p>
+                            </div>
+                        </div>
+
+                        <div className="stat-item">
+                            <Crown size={18} color="#A855F7" />
+                            <div className="text">
+                                <h4>{props.Founder}</h4>
+                                <p>Since {props.Date}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div className="foot">
+                    <button onClick={() => window.open(props.Link, "_blank")}>
+  GO TO YOUTUBE
+</button>
+                </div>
+
+            </div>
+
+
+        </>
     )
 }
 
