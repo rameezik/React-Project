@@ -1,15 +1,15 @@
 body{
-  padding: 10px 20px;
+  padding: 10px;
  background: linear-gradient(to right , black, rgb(65, 64, 64), black);
 }
 
 .parent{
   display: flex;
-  gap: 100px;
+  gap: 70px;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 10px;
-  column-gap: 100px;
+  column-gap: 40px;
   margin-top: 80px;
   margin-bottom: 60px;
 }
@@ -22,7 +22,7 @@ body{
 }
 
 .Title{
-    font-size: 3.2rem;
+    font-size: 2rem;
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -52,7 +52,7 @@ body{
 
 .Caption{
   margin-top: 2px;
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: #b1acac; 
     letter-spacing: 1px;
     font-weight: 300px ;
