@@ -43,7 +43,7 @@ const Note = () => {
                         <input onChange = {(e)=>{
                            const  title = e.target.value
                             setTitle(title)
-                        }} value={title} type="text" placeholder="Enter Task Title" className="border-2 border-amber-300 rounded-b-sm px-3 py-2 w-full bg-white sm:text-[12px] lg:text-[16px] text-gray-600 font-bold " />
+                        }} value={title} type="text"  placeholder="Enter Task Title" autoFocus className="border-2  border-amber-300 rounded-b-sm px-3 py-2 w-full bg-white sm:text-[12px]focus-auto lg:text-[16px] text-gray-600 font-bold " />
 
                         <textarea onChange={(e)=>{
                             const details = e.target.value;
@@ -51,7 +51,7 @@ const Note = () => {
                         }} 
                         value={details}
                         placeholder="Enter Task Detail" className="border-2 border-amber-300 rounded-b-sm px-3 py-2 w-full h-32 bg-white lg:text-[16px] text-gray-600 font-semibold "></textarea>
-                        <button type="submit" className="bg-[radial-gradient(circle,#f59e0b,#fcd34d,#d97706)] border-2 text-white font-bold border-white rounded-b-sm px-2 py-1 active:scale-95 w-full">Plot Task</button>
+                        <button type="submit" className="bg-[radial-gradient(circle,#f59e0b,#fcd34d,#d97706)] cursor-pointer border-2 text-white font-bold border-white rounded-b-sm px-2 py-1 active:scale-95 w-full">Plot Task</button>
                     </div>
                 </form>
                 <div className="lg:w-1/2 px-3 py-6">
@@ -66,7 +66,7 @@ const Note = () => {
                          className=" bg-[url('/nt.png')] bg-cover bg-center m-0 h-[200px] w-[170px] p-4 flex flex-col gap-1 items-start overflow-hidden text-xs relative ">
                             <h2 className="w-[51%] overflow-hidden  text-[17px] p-0  font-bold absolute top-11.5 left-11 text-blue-500">{elem.title.toUpperCase()}</h2>
                             <p className="w-[57%] wrap-break-word m-0 p-0 leading-6 line-clamp-3 absolute top-17 left-11 text-gray-800 text-[1.1em] font-semibold">{elem.details}</p>
-                            <button className="bg-red-500 text-amber-300 px-2 py-0.5 font-bold absolute bottom-7  rounded-3xl left-[43px]  active:scale-95 border-2 border-black" onClick={(e)=>{
+                            <button className="bg-red-500 cursor-pointer text-amber-300 px-2 py-0.5 font-bold absolute bottom-7  rounded-3xl left-[43px]  active:scale-95 border-2 border-black" onClick={(e)=>{
                                 const id= e.target.value.idx;
                                 removeHandler(id)
                             }}>Remove Task</button>

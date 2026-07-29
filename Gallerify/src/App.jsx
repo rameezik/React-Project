@@ -21,7 +21,7 @@ export default function App(){
       return(
             <div className=" h-40 w-60 " key={idx}>
            <a className="cursor-pointer" href={obj.url}><img className="object-cover rounded-xl w-full h-[90%]" src={obj.download_url} alt="image" /></a>
-           <h2 className="ml-1  text-white font-semibold font-mono">{obj.author}</h2>
+           <h2 className="ml-1  text-white font-semibold font-mono~">{obj.author}</h2>
             
       </div>
     
