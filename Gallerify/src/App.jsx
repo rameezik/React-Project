@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Card from "./component/card";
 
 export default function App(){
 
   const [data, setData] = useState([]);
- 
+
 
   
   async function getData(){
@@ -16,15 +17,13 @@ export default function App(){
   let loading = <h2 className="text-gray-400 font-semibold absolute top-1/2 text-xl left-[45%]">NO DATA AVAILABLE</h2>
   if(data.length>0){
     loading = data.map((obj, idx)=>{
-      console.log(obj)
+
       
       return(
-            <div className=" h-40 w-60 " key={idx}>
-           <a className="cursor-pointer" href={obj.url}><img className="object-cover rounded-xl w-full h-[90%]" src={obj.download_url} alt="image" /></a>
-           <h2 className="ml-1  text-white font-semibold font-mono~">{obj.author}</h2>
             
-      </div>
-    
+           <>
+              <Card Name={obj.author} Image={obj.url} Url={obj.download_url} key={idx}/>
+          </>
       )
     })
    
@@ -37,7 +36,7 @@ export default function App(){
     <button className="bg-green-700 mb-3 p-2 rounded-xl text-amber-50 active:scale-95 cursor-pointer" onClick={()=>{
       getData();
     }}>Get Data</button>
-    <div className="flex flex-wrap gap-x-4 gap-y-8 justify-between ">
+    <div className="flex flex-wrap gap-x-4 gap-y-8 justify-start ">
       {loading}
     </div>
 
