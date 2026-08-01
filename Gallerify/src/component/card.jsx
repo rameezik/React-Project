@@ -1,21 +1,20 @@
 import Spinner from "./spinner"
 import { useState } from "react"
+
+
+
 export default function Card(props){
-      const [load, setloading] = useState(true) 
-      console.log(props, "====props")
-      console.log(props.Image , "===image")
-
-
+      
+  const [load, setloading] = useState(true) 
+      
 
     return(
 
    <div className="h-[250px] w-[200px] p-0 relative">
-
-   
     
     {load && (
     <div className="absolute inset-0 flex justify-center items-center z-10">
-      <Spinner />
+      <Spinner height={2} />
     </div>
   )}
       

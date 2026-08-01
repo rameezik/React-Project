@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 import Card from "./component/card";
+import Navbar from "./component/nabar";
+import Spinner from "./component/spinner";
+
+
+
 
 export default function App(){
 
   const [data, setData] = useState([]);
 
+  useEffect(()=>{
+    getData();
+  },[])
 
   
   async function getData(){
     
     const response = await fetch("https://picsum.photos/v2/list?page=2&limit=50");
     const data = await response.json()
-    console.log(data);
     setData(data);
   }
-  let loading = <h2 className="text-gray-400 font-semibold absolute top-1/2 text-xl left-[45%]">NO DATA AVAILABLE</h2>
+  let loading = <Spinner className=""/>
   if(data.length>0){
     loading = data.map((obj, idx)=>{
 
@@ -32,11 +39,10 @@ export default function App(){
   
   
   return(
-    <div className="bg-black h-screen p-8 overflow-auto ">
-    <button className="bg-green-700 mb-3 p-2 rounded-xl text-amber-50 active:scale-95 cursor-pointer" onClick={()=>{
-      getData();
-    }}>Get Data</button>
-    <div className="flex flex-wrap gap-x-4 gap-y-8 justify-start ">
+    <div className="bg-black h-screen p-4 overflow-auto flex flex-col gap-y-8">
+      <Navbar/>
+   
+    <div className="flex flex-wrap gap-x-4 gap-y-8 justify-evenly ">
       {loading}
     </div>
 
