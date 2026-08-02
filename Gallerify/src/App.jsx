@@ -21,7 +21,7 @@ export default function App(){
     const data = await response.json()
     setData(data);
   }
-  let loading = <Spinner className=""/>
+  let loading = <Spinner />
   if(data.length>0){
     loading = data.map((obj, idx)=>{
 
@@ -39,10 +39,12 @@ export default function App(){
   
   
   return(
-    <div className="bg-black h-screen p-4 overflow-auto flex flex-col gap-y-8">
-      <Navbar/>
+    <div className=" h-screen overflow-auto flex flex-col gap-y-8 relative bg-[url('https://images.pexels.com/photos/34393350/pexels-photo-34393350.jpeg')] bg-cover ">
+     <div className="sticky top-0 p-0 z-50">
+      <Navbar />
+     </div>
    
-    <div className="flex flex-wrap gap-x-4 gap-y-8 justify-evenly ">
+    <div className="columns-2 md:columns-3 lg:columns-3 gap-y-4 px-4 ">
       {loading}
     </div>
 

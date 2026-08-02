@@ -4,6 +4,6 @@ export default function Spinner (){
     
 
     return(
-        <FadeLoader  color=" #808080" />
+        <FadeLoader  color="#fff" />
     )
 }

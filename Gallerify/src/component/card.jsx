@@ -3,32 +3,44 @@ import { useState } from "react"
 
 
 
-export default function Card(props){
-      
-  const [load, setloading] = useState(true) 
-      
+export default function Card({ Image, Url, Name }, key) {
 
-    return(
+  const [load, setloading] = useState(true)
 
-   <div className="h-[250px] w-[200px] p-0 relative">
-    
-    {load && (
-    <div className="absolute inset-0 flex justify-center items-center z-10">
-      <Spinner height={2} />
-    </div>
-  )}
-      
-            <a className="cursor-pointer h-full w-full text-white visited:text-red-500 " href={props.Image} target="_blank">
-            <img className={`${load ? "opacity-0" : "opacity-100"} object-cover rounded-xl h-[90%] w-full`} 
-            src={props.Url} alt="image" 
-            onLoad={()=>{console.log("imageloaded"); setloading(false)}}
-            onError={()=>{
-                console.log(props.Image, "===error");
-                setloading(false)
-            }} />
-            
-            <h2 className="ml-1   font-semibold font-mono ">{props.Name}</h2> 
-            </a>
+
+
+  return (
+
+    <div key={key} className=" p-2 relative mb-4">
+
+
+
+      {load && (
+        <div className="absolute inset-0 flex justify-center items-center z-10">
+          <Spinner />
         </div>
-    )
+      )}
+
+      <a className="cursor-pointer h-full w-full text-white visited:text-red-500 " 
+      href={Image} target="_blank">
+        <img 
+
+         className={`${load ? "opacity-0" : "opacity-100"} object-cover rounded-xl border-2 border-[#062223]`}
+
+          src={Url} alt="image"
+
+          onLoad={() => 
+            { console.log("imageloaded"); setloading(false) }
+          }
+          
+          onError={() => {
+            setloading(false)
+          }} />
+
+        <h2 className="ml-1   font-semibold font-mono ">{Name}</h2>
+
+      </a>
+
+    </div>
+  )
 }
